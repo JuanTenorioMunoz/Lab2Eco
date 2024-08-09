@@ -51,23 +51,27 @@ function renderData(data, users) {
   if (data.length > 0) {
     data.forEach((item) => {
       const postContainer = document.createElement("div");
+      const user = document.createElement("h3")
       const title = document.createElement("h1")
       const body = document.createElement("p")
 
-      const foundUser = users.findUser(item.id)
-
+      const foundUser = findUser(users, item.userId)
+      console.log(foundUser)
 
       postContainer.className = "post-container";
       title.innerHTML = item.title;
       body.innerHTML = item.body;
+      user.innerHTML = foundUser;
       
-      postContainer.appendChild(title)
-      postContainer.appendChild(body)
+      postContainer.appendChild(user);
+      postContainer.appendChild(title);
+      postContainer.appendChild(body);
       container.appendChild(postContainer);
     });
   }
 }
 
-const findUser = async (user) => {
-  user.find((id) => id === user.id)
+const findUser = async (userArray, userId) => {
+  const found =  await userArray.find((id) => id === userId)
+  return found
 }
