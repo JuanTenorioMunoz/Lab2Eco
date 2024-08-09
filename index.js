@@ -2,19 +2,32 @@ document.getElementById("fetch-button").addEventListener("click", fetchPosts);
 
 async function fetchPosts() {
   renderLoadingState();
+  const userData = await fetchUsers();
+
   try {
     const response = await fetch("http://localhost:3004/posts");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    renderData(data);
+    renderData(data,userData);
   } catch (error) {
     renderErrorState();
   }
 }
 
-const fetchUsers = () => {
+const fetchUsers = async () => {
+  console.log("im doing something")
+  try {
+    const response = await fetch("http://localhost:3004/users")
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data
+  } catch (error) {
+    console.log("SOS RE GIL" + error)
+  }
 }
 
 function renderErrorState() {
@@ -31,7 +44,7 @@ function renderLoadingState() {
   console.log("Loading...");
 }
 
-function renderData(data) {
+function renderData(data, users) {
   const container = document.getElementById("data-container");
   container.innerHTML = ""; 
 
@@ -40,6 +53,9 @@ function renderData(data) {
       const postContainer = document.createElement("div");
       const title = document.createElement("h1")
       const body = document.createElement("p")
+
+      const foundUser = users.findUser(item.id)
+
 
       postContainer.className = "post-container";
       title.innerHTML = item.title;
@@ -50,4 +66,8 @@ function renderData(data) {
       container.appendChild(postContainer);
     });
   }
+}
+
+const findUser = async (user) => {
+  user.find((id) => id === user.id)
 }
