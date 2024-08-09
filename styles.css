@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#data-container {
+    margin-top: 20px;
+}
+.item {
+    margin-bottom: 10px;
+}
+img {
+    max-width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
