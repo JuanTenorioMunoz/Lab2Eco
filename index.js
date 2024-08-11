@@ -13,6 +13,7 @@ async function fetchPosts() {
     renderData(data,userData);
   } catch (error) {
     renderErrorState();
+    console.log(error);
   }
 }
 
@@ -27,6 +28,7 @@ const fetchUsers = async () => {
     return data
   } catch (error) {
     console.log("SOS RE GIL" + error)
+    renderErrorState();
   }
 }
 
@@ -55,23 +57,23 @@ function renderData(data, users) {
       const title = document.createElement("h1")
       const body = document.createElement("p")
 
-      const foundUser = findUser(users, item.userId)
+      const foundUser = users.find((u) => u.id === users.userId)
       console.log(foundUser)
 
       postContainer.className = "post-container";
       title.innerHTML = item.title;
       body.innerHTML = item.body;
-      user.innerHTML = foundUser;
+      user.innerHTML = foundUser ? foundUser.name;
       
       postContainer.appendChild(user);
       postContainer.appendChild(title);
       postContainer.appendChild(body);
-      container.appendChild(postContainer);
+      container.appendChild(postContainer);  
     });
   }
 }
 
-const findUser = async (userArray, userId) => {
-  const found =  await userArray.find((id) => id === userId)
+const findUser = (userArray, userId) => {
+  const found =  userArray.find((id) => id === userId)
   return found
 }
