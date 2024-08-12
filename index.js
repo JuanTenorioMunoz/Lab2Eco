@@ -69,6 +69,17 @@ function renderData(data, userData) {
 
       const deleteButtonAction = () => {
         console.log("this is " + id)
+        
+        try {
+          const response = fetch(`http://localhost:3004/posts/${id}`, {
+            method: 'DELETE'
+          })
+
+          fetchPosts();
+        } catch (error) {
+          console.log(error)
+        }
+
       }
 
       postContainer.className = "post-container";
@@ -90,6 +101,10 @@ function renderData(data, userData) {
 
 const findUser = (userArray, post) => {
   return userArray.find((userInfo) => userInfo.id === post.userId.toString());
+};
+
+const post = (postsArray, post) => {
+  return userArray.find((postInfo) => postInfo.id === post.userId.toString());
 };
 
 const addPost = async () => {
