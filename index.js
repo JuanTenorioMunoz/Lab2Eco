@@ -1,10 +1,16 @@
-document.getElementById("fetch-button").addEventListener("click", fetchPosts);
 const container = document.getElementById("data-container");
+const title = document.getElementById("inputTitle");
+const body = document.getElementById("inputBody");
 
 let activeUser = {
   userName: "Tommy",
   id: 1,
 };
+
+let newPost = {
+  title: "",
+  body: "",
+}
 
 async function fetchPosts() {
   renderLoadingState();
@@ -80,9 +86,9 @@ const findUser = (userArray, post) => {
 const addPost = async () => {
   const currentId = activeUser.id;
 
-  const newPost = {
-    title: "New Post Title",
-    body: "This is the content of the new post.",
+  const post = {
+    title: newPost.title,
+    body: newPost.body,
     userId: currentId,
   };
 
@@ -92,7 +98,7 @@ const addPost = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPost),
+      body: JSON.stringify(post),
     });
 
     if (!response.ok) {
@@ -108,4 +114,19 @@ const addPost = async () => {
   }
 };
 
+const inputTitle = () => {
+  newPost.title = title.value;
+  console.log("POST" + newPost.title)
+}
+
+const inputBody= () => {
+  newPost.body = body.value;
+  console.log("POST" + newPost.body)
+}
+
+title.addEventListener('input', inputTitle)
+body.addEventListener('input', inputBody)
 document.getElementById("post-button").addEventListener("click", addPost);
+
+fetchPosts();
+
