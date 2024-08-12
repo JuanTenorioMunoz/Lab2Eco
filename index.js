@@ -2,9 +2,9 @@ document.getElementById("fetch-button").addEventListener("click", fetchPosts);
 const container = document.getElementById("data-container");
 
 let activeUser = {
-  userName: "",
-  id:"1",
-}
+  userName: "Tommy",
+  id: 1,
+};
 
 async function fetchPosts() {
   renderLoadingState();
@@ -16,7 +16,7 @@ async function fetchPosts() {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    renderData(data,userData);
+    renderData(data, userData);
   } catch (error) {
     renderErrorState();
     console.log(error);
@@ -24,34 +24,32 @@ async function fetchPosts() {
 }
 
 const fetchUsers = async () => {
-  console.log("im doing something")
+  console.log("Fetching users...");
   try {
-    const response = await fetch("http://localhost:3004/users")
+    const response = await fetch("http://localhost:3004/users");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data
+    return data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     renderErrorState();
   }
-}
+};
 
 function renderErrorState() {
-  container.innerHTML = ""; 
   container.innerHTML = "<p>Failed to load data</p>";
   console.log("Failed to load data");
 }
 
 function renderLoadingState() {
-  container.innerHTML = ""; 
   container.innerHTML = "<p>Loading...</p>";
   console.log("Loading...");
 }
 
-function renderData(data, users) {
-  container.innerHTML = ""; 
+function renderData(data, userData) {
+  container.innerHTML = "";
 
   if (data.length > 0) {
     data.forEach((item) => {
@@ -60,7 +58,7 @@ function renderData(data, users) {
       const title = document.createElement("h1");
       const body = document.createElement("p");
 
-      const foundUser = findUser(users, item);
+      const foundUser = findUser(userData, item);
 
       postContainer.className = "post-container";
       title.innerHTML = item.title;
@@ -75,18 +73,16 @@ function renderData(data, users) {
   }
 }
 
-const findUser = (userArray, userId) => {
-  const found =  userArray.find((id) => id.id === userId.id)
-  return found
-}
+const findUser = (userArray, post) => {
+  return userArray.find((userInfo) => userInfo.id === post.userId);
+};
 
 const addPost = async () => {
-  const currentUser = activeUser.userName;
   const currentId = activeUser.id;
 
   const newPost = {
-    title: "New Post Title", 
-    body: "This is the content of the new post.", 
+    title: "New Post Title",
+    body: "This is the content of the new post.",
     userId: currentId,
   };
 
@@ -112,4 +108,4 @@ const addPost = async () => {
   }
 };
 
-document.getElementById("post-button").addEventListener("click", addPost)
+document.getElementById("post-button").addEventListener("click", addPost);

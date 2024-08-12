@@ -3,6 +3,12 @@
     {
       "userId": 1,
       "id": "1",
+      "title": "New Post Title",
+      "body": "This is the content of the new post."
+    },
+    {
+      "userId": 1,
+      "id": "1",
       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
       "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
     },
@@ -599,6 +605,42 @@
       "id": "100",
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
+    },
+    {
+      "id": "320c",
+      "title": "New Post Title",
+      "body": "This is the content of the new post.",
+      "userId": "1"
+    },
+    {
+      "id": "32ea",
+      "title": "New Post Title",
+      "body": "This is the content of the new post.",
+      "userId": "1"
+    },
+    {
+      "id": "b84c",
+      "title": "New Post Title",
+      "body": "This is the content of the new post.",
+      "userId": "1"
+    },
+    {
+      "id": "f2f9",
+      "title": "New Post Title",
+      "body": "This is the content of the new post.",
+      "userId": "1"
+    },
+    {
+      "id": "413a",
+      "title": "New Post Title",
+      "body": "This is the content of the new post.",
+      "userId": "1"
+    },
+    {
+      "id": "0749",
+      "title": "New Post TiERRRERRle",
+      "body": "This iFERTRGJOWEs the content of the new post.",
+      "userId": 1
     }
   ],
   "comments": [
