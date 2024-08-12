@@ -63,17 +63,26 @@ function renderData(data, userData) {
       const user = document.createElement("h3");
       const title = document.createElement("h1");
       const body = document.createElement("p");
+      const deleteButton = document.createElement('button');
 
       const foundUser = findUser(userData, item);
+
+      const deleteButtonAction = () => {
+        console.log("this is " + id)
+      }
 
       postContainer.className = "post-container";
       title.innerHTML = item.title;
       body.innerHTML = item.body;
-      user.innerHTML = foundUser ? foundUser.name : "Unknown User";
+      user.innerHTML = foundUser ? foundUser.name : "Username not found";
+      const id = item.id;
+      deleteButton.addEventListener('click', deleteButtonAction)
       
       postContainer.appendChild(user);
       postContainer.appendChild(title);
       postContainer.appendChild(body);
+      postContainer.appendChild(deleteButton);
+
       container.appendChild(postContainer);
     });
   }
