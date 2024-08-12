@@ -74,7 +74,7 @@ function renderData(data, userData) {
 }
 
 const findUser = (userArray, post) => {
-  return userArray.find((userInfo) => userInfo.id === post.userId);
+  return userArray.find((userInfo) => userInfo.id === post.userId.toString());
 };
 
 const addPost = async () => {
