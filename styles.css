@@ -11,16 +11,24 @@ body {
 }
 
 .post-container {
-    width: 30vw;
+    width: 40vw;
     margin: 10px;
 }
 
 .item {
     margin-bottom: 10px;
 }
+
 img {
     max-width: 300px;
     border: 2px solid #ccc;
     border-radius: 10px;
 }
+
+.upperContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+}
+
 
