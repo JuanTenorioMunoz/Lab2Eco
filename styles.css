@@ -11,8 +11,52 @@ body {
 }
 
 .post-container {
-    width: 40vw;
-    margin: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    max-width: 20vw;
+  }
+
+.post-container:hover {
+    transform: translateY(-5px);
+  }
+
+.user {
+  font-size: 18px;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.body {
+  font-size: 16px;
+  color: #495057;
+  line-height: 1.6;
+}
+
+button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c82333;
 }
 
 .item {
