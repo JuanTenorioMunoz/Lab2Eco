@@ -64,6 +64,7 @@ function renderData(data, userData) {
       const title = document.createElement("h1");
       const body = document.createElement("p");
       const deleteButton = document.createElement('button');
+      deleteButton.innerHTML = "Delete";
       const upperContainer = document.createElement('div')
 
       const foundUser = findUser(userData, item);
